@@ -25,6 +25,22 @@
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 
+               <li class="nav-item">
+                    <a href="{{ route('berita.index') }}"
+                        class="nav-link {{ (request()->is('berita')) ? 'active' : '' }}">
+                        <i class="fas fa-caret-right"></i>
+                        <p>Berita</p>
+                    </a>
+                </li>
+                
+               <li class="nav-item">
+                    <a href="{{ route('tips.index') }}"
+                        class="nav-link {{ (request()->is('tips')) ? 'active' : '' }}">
+                        <i class="fas fa-caret-right"></i>
+                        <p>Tips</p>
+                    </a>
+                </li>
+                
                 <li class="nav-item">
                     <a href="{{ route('agenda.index') }}"
                         class="nav-link {{ (request()->is('agenda')) ? 'active' : '' }}">

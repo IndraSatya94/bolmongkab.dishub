@@ -248,65 +248,17 @@
 
         <div class="row gy-4">
 
+        @foreach($tips as $tip)
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
             <div class="tips-box blue">
               <div class="tips-img">
-                <img src="assets/img/png/healthcare.png" class="img-fluid" alt="">
+                <img src="/image/tips/{{ $tip->image }}" class="img-fluid" alt="">
               </div>
-              <h3>Badan harus dalam kondisi sehat</h3>
-              <p>Ini prioritas nomor satu. Jika badan jauh di bawah kondisi kesehatan rata-rata, maka pertimbangkan untuk menunda atau bahkan membatalkan mudik dengan berkendara. Dan ingat, bawa KTP dan Kartu Asuransi/BPJS!</p>
+              <h3>{{ $tip->judul_tips }}</h3>
+              <p>{{ $tip->body }}</p>
             </div>
           </div>
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="tips-box orange">
-              <div class="tips-img">
-                <img src="assets/img/png/car-insurance.png" class="img-fluid" alt="">
-              </div>
-              <h3>Kendaraan harus dalam kondisi baik</h3>
-              <p>Pastikan untuk servis atau melakukan pengecekan kendaraan sebelum dipakai jalan jarak jauh. Sempatkan waktu untuk mengecek BBM, tekanan angin ban, air radiator, oli mesin, dll.</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="tips-box green">
-              <div class="tips-img">
-                <img src="assets/img/png/delivery-box.png" class="img-fluid" alt="">
-              </div>
-              <h3>Bawa barang muatan seperlunya</h3>
-              <p>Hal ini penting demi kestabilan kendaraan kamu, apalagi yang membawa motor. Usahakan agar barang bawaan tidak berlebihan sampai keluar dari sisi-sisi kendaraan. Kalau perlu, kirim barang-barang dulu lewat kurir.</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-            <div class="tips-box red">
-              <div class="tips-img">
-                <img src="assets/img/png/map.png" class="img-fluid" alt="">
-              </div>
-              <h3>Rencanakan perjalanan dengan Peta Digital</h3>
-              <p>Biar di jalan hemat waktu, cek rutenya di peta digital dulu. Ketahui mana saja yang bisa dilewati dan mana yang patut dihindari. Kalau capek dan mau cari penginapan, ada fitur Hotels di Grab app untuk mencari hotel terdekat dan terjangkau!.</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-            <div class="tips-box purple">
-              <div class="tips-img">
-                <img src="assets/img/png/lunch-box.png" class="img-fluid" alt="">
-              </div>
-              <h3>Bawa bekal untuk di jalan</h3>
-              <p>Siapkan persediaan, supaya kamu bisa makan atau nyemil di jalan. Jika tidak sempat, pakai GrabFood aja, baik di rumah atau stop dulu di jalan, untuk makanan yang enak dan lengkap!</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="700">
-            <div class="tips-box pink">
-              <div class="tips-img">
-                <img src="assets/img/png/resting.png" class="img-fluid" alt="">
-              </div>
-              <h3>Rest Area jangan hanya dilewati saja</h3>
-              <p>Jangan sepelekan istirahat saat mudik, kamu perlu setidaknya stop 2-3 jam sekali untuk mengisitirahatkan otot-otot di badan, mengisi perut, dan kegiatan relaksasi lainnya. Kalau mau santai, ada fitur video streaming Hooq di aplikasi Grab untuk nonton film-film atau acara TV nasional live!</p>
-            </div>
-          </div>
+        @endforeach
 
         </div>
 

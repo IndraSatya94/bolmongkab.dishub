@@ -31,6 +31,8 @@ use App\Http\Controllers\BannerController;
 
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\JabatanController;
+use App\Http\Controllers\TipController;
+use App\Http\Controllers\BeritaController;
 //akhir crud
 
 //Halaman statis
@@ -72,7 +74,6 @@ Route::group(['middleware' => ['auth','ceklevel:admin,operator']], function () {
     // route::get('/halaman',[HalamanController::class,'index'])->name('halaman');
    
     //crud
-    Route::resource('visimisi', VisimisiController::class);
     Route::resource('bupati', BupatiController::class);
     Route::resource('pimpinan', PimpinanController::class);
     Route::resource('puskesmas', PuskesmaController::class);
@@ -86,12 +87,16 @@ Route::group(['middleware' => ['auth','ceklevel:admin,operator']], function () {
     Route::resource('pelayanan', PelayananController::class);
     Route::resource('dinasdetail', DinasdetailController::class);
     Route::resource('dinastab', DinastabController::class);
-    Route::resource('slide', SlideController::class);
     Route::resource('kecamatan', KecamatanController::class);
     Route::resource('banner', BannerController::class);
-    Route::resource('agenda', AgendaController::class);
     Route::resource('tags', TagController::class);
     Route::resource('jabatan', JabatanController::class);
+    
+    Route::resource('slide', SlideController::class);
+    Route::resource('visimisi', VisimisiController::class);
+    Route::resource('agenda', AgendaController::class);
+    Route::resource('tips', TipController::class);
+    Route::resource('berita', BeritaController::class);
 
     route::get('/admin',[LoginController::class,'index'])->name('admin');
     route::post('/deladmin/{users:id}',[LoginController::class,'destroy'])->name('deladmin');

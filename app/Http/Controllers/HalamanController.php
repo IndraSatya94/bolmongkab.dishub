@@ -6,25 +6,28 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
-use App\Models\Visimisi;
 use App\Models\Sejarah;
 use App\Models\Detailsejarah;
 use App\Models\Pimpinan;
 use App\Models\Pengumuman;
 use App\Models\Pelayanan;
 use App\Models\Dinasdetail;
-use App\Models\Slide;
+
 use App\Models\Puskesma;
-use App\Models\User;
 use App\Models\Kecamatan;
 use App\Models\Bupati;
 use App\Models\Wakilbupati;
 use App\Models\Sekda;
 use App\Models\Banner;
-use App\Models\Agenda;
 use App\Models\Download;
 use App\Models\Kategori;
 
+
+use App\Models\Visimisi;
+use App\Models\Agenda;
+use App\Models\User;
+use App\Models\Slide;
+use App\Models\Tip;
 
 class HalamanController extends Controller
 {
@@ -35,16 +38,17 @@ class HalamanController extends Controller
 
     //dishub
     public function index(){
-        $banner = Banner::latest()->simplePaginate(3);
-        $pimpinan = Pimpinan::latest()->simplePaginate(3);
-        $pengumuman = Pengumuman::latest()->simplePaginate(3);
-        $agenda = Agenda::latest()->simplePaginate(3);
-        $pelayanan = Pelayanan::latest();
-        $pelayanan1 = Pelayanan::where('posisi', 'atas')->get();
-        $pelayanan2= Pelayanan::where('posisi', 'bawah')->get();
+        // $pelayanan = Pelayanan::latest();
+        // $pelayanan1 = Pelayanan::where('posisi', 'atas')->get();
+        // $pelayanan2= Pelayanan::where('posisi', 'bawah')->get();
+        // $banner = Banner::latest()->simplePaginate(3);
+        // $pengumuman = Pengumuman::latest()->simplePaginate(3);
+        // $pimpinan = Pimpinan::latest()->simplePaginate(3);
+        // $agenda = Agenda::latest()->simplePaginate(3);
+        $tips = Tip::get();
         $slide1 = Slide::where('slide', 'slide1')->get();
         $slide2 = Slide::where('slide', 'slide2')->get();
-        return view('dishub/index',compact('pimpinan','pengumuman','pelayanan1','pelayanan2','slide1','slide2','banner','agenda'));
+        return view('dishub/index',compact('slide1','slide2','tips'));
     }
 
     public function visimisi(){

@@ -20,4 +20,9 @@ class Tag extends Model
         return $this->hasMany(Pengumuman::class, 'id_tag');
 
    }
+   public function berita()
+    {
+        return $this->hasMany(Berita::class, 'id_tag');
+
+   }
 }
