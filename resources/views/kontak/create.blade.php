@@ -28,7 +28,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0 text-dark">Kelola Halaman Berita</h1>
+                            <h1 class="m-0 text-dark">Kelola Kontak</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -55,69 +55,53 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                 <div class="card card-primary" style="margin-top:10px;">
                     <div class="card-header">
-                        Tambah berita
+                        Tambah Kontak
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('beritas.store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('kontaks.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
 
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>Judul:</strong>
-                                    <input type="text" value="{{ old('judul') }}" name="judul" class="form-control" placeholder="Judul">
+                                    <strong>Alamat:</strong>
+                                    <textarea class="form-control" style="height:150px" name="alamat"
+                                        placeholder="Body">{{ old('alamat') }}</textarea>
                                 </div>
                             </div>
+                            
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <label class="input-group-text" for="inputGroupSelect01">Kategori
-                                                Berita</label>
-                                        </div>
-                                        <select class="custom-select" id="inputGroupSelect01" name="id_kategori"
-                                            id="id_kategori">
-                                            <option value="">Pilih Kategori</option>
-                                            @foreach ($kategori as $kateg)
-                                            <option value="{{ $kateg->id}}">{{ $kateg->nama }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
+                                    <strong>Email:</strong>
+                                    <input type="text" value="{{ old('email') }}" name="email" class="form-control" placeholder="email">
+                                </div>
+                            </div>
+                            
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <strong>Telepon:</strong>
+                                    <input type="text" value="{{ old('telepon') }}" name="telepon" class="form-control" placeholder="telepon">
                                 </div>
                             </div>
 
-                            <div class="col-xs-1 col-sm-1 col-md-1">
+                            
+                            <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>Author ID:</strong>
-                                    <input class="form-control" type="text" name="id_user" id="id_user"
-                                        value="{{ auth()->user()->id }}" placeholder="{{ auth()->user()->id }}"
-                                        readonly>
+                                    <strong>Buka:</strong>
+                                    <input type="time" value="{{ old('buka') }}" name="buka" class="form-control" placeholder="buka">
                                 </div>
                             </div>
 
+                            
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>Konten:</strong>
-                                    <textarea class="form-control" style="height:150px" name="konten"
-                                        placeholder="Konten">{{ old('konten') }}</textarea>
+                                    <strong>Tutup:</strong>
+                                    <input type="time" value="{{ old('tutup') }}" name="tutup" class="form-control" placeholder="tutup">
                                 </div>
                             </div>
 
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>Image:</strong>
-                                    <input type="file" name="image" class="form-control" placeholder="image">
-                                </div>
-                            </div>
-
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>Slug:</strong>
-                                    <input type="text" value="{{ old('slug') }}" name="slug" class="form-control" placeholder="slug">
-                                </div>
-                            </div>
                             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                                 <button type="submit" class="btn btn-primary" onClick="return confirm('Simpan ?')">Simpan</button>
-                                <a class="btn btn-light" href="{{ route('beritas.index') }}">Batal</a>
+                                <a class="btn btn-light" href="{{ route('kontaks.index') }}">Batal</a>
                             </div>
 
                         </form>

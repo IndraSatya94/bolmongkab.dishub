@@ -36,24 +36,15 @@
 
     <!-- ======= visimisi Section ======= -->
     <section id="tugasfungsi" class="tugasfungsi">
+    @foreach ($tugasfungsi as $tf)
       <div class="container">
 
-            <h2>TUGAS</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque reprehenderit sint, aliquam aperiam dolore necessitatibus commodi sit aut beatae, sed vitae eum amet eveniet nam quasi et. Explicabo, accusantium non.
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis minima quam ratione iste officia ipsum ullam voluptas esse! Harum repellat culpa illum enim dignissimos reiciendis beatae commodi iste sint ab!
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores dolor ipsum architecto accusamus odit autem doloribus suscipit dolorum veritatis quam ullam facere eaque fugit exercitationem, voluptatum recusandae quos magni animi.
-            </p>
-
-              <br><br>
-
-            <h2>FUNGSI</h2>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint sapiente totam consequuntur explicabo est dolores, laudantium amet odit dolorem! Temporibus expedita eaque labore, molestiae accusantium pariatur explicabo dolore obcaecati quibusdam.
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod corrupti inventore id ducimus laudantium et, vel magnam, laborum voluptates provident adipisci molestias, sequi distinctio atque facere dolorem quam animi optio? <br>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quasi quod velit dolores aliquam non corporis quaerat quibusdam incidunt, harum sapiente animi deserunt delectus. Ipsa ducimus animi soluta mollitia harum!
+            <h2>TUGAS DAN FUNGSI</h2>
+            <p>{{$tf->body}}
             </p>
 
       </div>
+      @endforeach
     </section><!-- End visimisi Section -->
 
 

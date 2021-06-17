@@ -28,7 +28,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="container-fluid animate__animated animate__bounceInDown">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0 text-dark">Halaman Agenda</h1>
+                            <h1 class="m-0 text-dark">Halaman</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -50,47 +50,39 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </div>
                     @endif
                     <div class="button-buat animate__animated animate__bounceInDown">
-                        <a class="btn btn-primary" href="{{ route('agenda.create') }}"><i class="fas fa-plus"></i>
+                        <a class="btn btn-primary" href="{{ route('statiks.create') }}"><i class="fas fa-plus"></i>
                             Tambah</a>
                     </div>
 
 
                     <div class="card text-center card-primary" style="margin-top:10px;">
                         <div class="card-header">
-                            Data Agenda
+                            Data Halaman
                         </div>
                         <div class="card-body">
-                            <table
-                                class="table table-bordered table-responsive animate__animated animate__bounceInRight animate__fast">
+                            <table class="table table-bordered table-responsive animate__animated animate__bounceInRight animate__fast">
                                 <thead class="table-primary">
                                     <tr>
                                         <th>No</th>
-                                        <th>Author</th>
-                                        <th>Acara</th>
-                                        <th>Tempat</th>
-                                        <th>Tanggal</th>
-                                        <th>Mulai</th>
-                                        <th>Selesai</th>
+                                        <th>Image</th>
+                                        <th>Halaman</th>
+                                        <th>Body</th>
                                         <th width="280px">Action</th>
                                     </tr>
                                 </thead>
 
-                                @foreach ($agenda as $agen)
+                                @foreach ($statiks as $sek)
                                 <tbody>
                                     <tr>
                                         <td>{{ ++$i }}</td>
-                                        <td>{{ $agen->user }}</td>
-                                        <td>{{ $agen->acara }}</td>
-                                        <td>{{ $agen->tempat }}</td>
-                                        <td>{{ $agen->tanggal }}</td>
-                                        <td>{{ $agen->mulai }}</td>
-                                        <td>{{ $agen->selesai }}</td>
+                                        <td><img src="/image/statiks/{{ $sek->image }}" width="100px"></td>
+                                        <td>{{ $sek->halaman }}</td>
+                                        <td>{{ $sek->body }}</td>
                                         <td>
-                                            <form action="{{ route('agenda.destroy',$agen->id) }}" method="POST"
-                                                onSubmit="return confirm('Apakah anda yakin ingin menghapus data ?')">
+                                            <form action="{{ route('statiks.destroy',$sek->id) }}" method="POST"
+                                                onSubmit="return confirm('Hapus Data ?')">
 
-                                                <a class="btn btn-warning"
-                                                    href="{{ route('agenda.edit',$agen->id) }}"><i
+                                                <a class="btn btn-warning" href="{{ route('statiks.edit',$sek->id) }}"><i
                                                         class="fas fa-pen-square"></i></a>
 
                                                 @csrf
@@ -109,7 +101,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
                             <div class="pagination" style="margin-top:20px;">
-                                {!! $agenda->links() !!}
+                                {!! $statiks->links('Template.pagination') !!}
                             </div>
                         </div>
                     </div>

@@ -157,7 +157,7 @@ h1, h2, h3, h4, h5, h6 {
 .struktur img {
   position: relative;
     overflow: hidden;
-    width: 100%;
+    width: 30%;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -1989,6 +1989,7 @@ section {
 
 .berita .entry .entry-img img {
   width: 100%;
+  height: 100%;
 }
 
 .berita .entry .entry-title {

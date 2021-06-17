@@ -28,7 +28,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0 text-dark">Kelola Halaman Berita</h1>
+                            <h1 class="m-0 text-dark">Kelola Halaman</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -44,7 +44,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                 @if ($errors->any())
                 <div class="alert alert-danger">
-                    <strong>Periksa Kembali Inputan Anda !</strong><br><br>
+                    <strong>Periksa Kembali Inputan Anda</strong><br><br>
                     <ul>
                         @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
@@ -53,71 +53,50 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </div>
                 @endif
 
+
                 <div class="card card-primary" style="margin-top:10px;">
                     <div class="card-header">
-                        Tambah berita
+                        Edit Halaman
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('beritas.store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('statiks.update',$statik->id) }}" method="POST"
+                            enctype="multipart/form-data">
                             @csrf
+                            @method('PUT')
 
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>Judul:</strong>
-                                    <input type="text" value="{{ old('judul') }}" name="judul" class="form-control" placeholder="Judul">
-                                </div>
-                            </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
-                                            <label class="input-group-text" for="inputGroupSelect01">Kategori
-                                                Berita</label>
+                                            <label class="input-group-text" for="inputGroupSelect01">Pilih
+                                                Halaman</label>
                                         </div>
-                                        <select class="custom-select" id="inputGroupSelect01" name="id_kategori"
-                                            id="id_kategori">
-                                            <option value="">Pilih Kategori</option>
-                                            @foreach ($kategori as $kateg)
-                                            <option value="{{ $kateg->id}}">{{ $kateg->nama }}</option>
-                                            @endforeach
+                                        <select class="custom-select" id="inputGroupSelect01" name="halaman"
+                                            id="halaman">
+                                            <option value="{{$statik->halaman}}">{{$statik->halaman}}</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="col-xs-1 col-sm-1 col-md-1">
-                                <div class="form-group">
-                                    <strong>Author ID:</strong>
-                                    <input class="form-control" type="text" name="id_user" id="id_user"
-                                        value="{{ auth()->user()->id }}" placeholder="{{ auth()->user()->id }}"
-                                        readonly>
-                                </div>
-                            </div>
-
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>Konten:</strong>
-                                    <textarea class="form-control" style="height:150px" name="konten"
-                                        placeholder="Konten">{{ old('konten') }}</textarea>
+                                    <strong>Body:</strong>
+                                    <textarea class="form-control" style="height:150px" name="body"
+                                        placeholder="Body">{{ $statik->body }}</textarea>
                                 </div>
                             </div>
-
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Image:</strong>
                                     <input type="file" name="image" class="form-control" placeholder="image">
+                                    <img src="/image/statiks/{{ $statik->image }}" width="300px"
+                                        style="padding-top: 20px;">
                                 </div>
                             </div>
-
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>Slug:</strong>
-                                    <input type="text" value="{{ old('slug') }}" name="slug" class="form-control" placeholder="slug">
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                                <button type="submit" class="btn btn-primary" onClick="return confirm('Simpan ?')">Simpan</button>
-                                <a class="btn btn-light" href="{{ route('beritas.index') }}">Batal</a>
+                            <div class="col-xs-12 col-sm-12 col-md-12 text-left">
+                                <button type="submit" class="btn btn-primary"
+                                    onClick="return confirm('Ubah Data ?')">Submit</button>
+                                <a class="btn btn-light" href="{{ route('statiks.index') }}">Cancel</a>
                             </div>
 
                         </form>

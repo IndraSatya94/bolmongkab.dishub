@@ -31,6 +31,8 @@ use App\Models\Tip;
 use App\Models\Berita;
 use App\Models\Struktur;
 use App\Models\Galeri;
+use App\Models\Kontak;
+use App\Models\Statik;
 
 class HalamanController extends Controller
 {
@@ -41,20 +43,21 @@ class HalamanController extends Controller
 
     //dishub
     public function index(){
+        $kontaks = Kontak::first()->get();
         $beritas = Berita::get();
         $tips = Tip::get();
         $slide1 = Slide::where('slide', 'slide1')->get();
         $slide2 = Slide::where('slide', 'slide2')->get();
-        return view('dishub/index',compact('slide1','slide2','tips','beritas'));
+        return view('dishub/index',compact('slide1','slide2','tips','beritas','kontaks'));
     }
 
     public function visimisi(){
-        $visimisi = Visimisi::latest()->simplePaginate();
+        $visimisi = Statik::where('halaman', 'visimisi')->get();
         return view('dishub/pages/visimisi',compact('visimisi'));
     }
 
     public function struktur(){
-        $strukturs = Struktur::get();
+        $strukturs = Statik::where('halaman', 'struktur')->get();
         return view('dishub/pages/struktur',compact('strukturs'));
     }
 
@@ -74,7 +77,8 @@ class HalamanController extends Controller
     }
 
     public function kontak(){
-        return view('dishub/pages/kontak');
+        $kontaks = Kontak::first()->get();
+        return view('dishub/pages/kontak',compact('kontaks'));
     }
 
     public function berita(Request $request) {
@@ -114,8 +118,8 @@ class HalamanController extends Controller
     }
 
     public function tugasfungsi(){
-
-        return view('dishub/pages/tugasfungsi');
+        $tugasfungsi = Statik::where('halaman', 'tugasfungsi')->get();
+        return view('dishub/pages/tugasfungsi',compact('tugasfungsi'));
     }
     //akhir dishub
 

@@ -41,7 +41,7 @@
                 <div class="judul">
                     <h2 class="animate__animated animate__bounceInDown">VISI DAN MISI</h2>
                     <hr>
-                    <img class="animate__animated animate__bounceInLeft animate__fast" src="/image/{{ $vmisi->image }}"
+                    <img class="animate__animated animate__bounceInLeft animate__fast" src="image/statiks/{{ $vmisi->image }}"
                         alt="">
                 </div>
                 <p class="animate__animated animate__bounceInRight animate__fast">{{ $vmisi->body }}</p>

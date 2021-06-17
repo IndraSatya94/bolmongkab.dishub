@@ -93,6 +93,8 @@ class KontakController extends Controller
             'tutup' => 'required'
         ]);
           
+        $input = $request->all();
+          
         $kontak->update($input);
     
         return redirect()->route('kontaks.index')

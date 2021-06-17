@@ -26,18 +26,26 @@
                with font-awesome or any other icon font library -->
 
                <li class="nav-item">
+                    <a href="{{ route('statiks.index') }}"
+                        class="nav-link {{ (request()->is('statiks')) ? 'active' : '' }}">
+                        <i class="fas fa-caret-right"></i>
+                        <p>Halaman Statis</p>
+                    </a>
+                </li>
+
+               <li class="nav-item">
+                    <a href="{{ route('kontaks.index') }}"
+                        class="nav-link {{ (request()->is('kontaks')) ? 'active' : '' }}">
+                        <i class="fas fa-caret-right"></i>
+                        <p>Kontak</p>
+                    </a>
+                </li>
+
+               <li class="nav-item">
                     <a href="{{ route('galeris.index') }}"
                         class="nav-link {{ (request()->is('galeris')) ? 'active' : '' }}">
                         <i class="fas fa-caret-right"></i>
                         <p>Galeri</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="{{ route('strukturs.index') }}"
-                        class="nav-link {{ (request()->is('strukturs')) ? 'active' : '' }}">
-                        <i class="fas fa-caret-right"></i>
-                        <p>Struktur</p>
                     </a>
                 </li>
 
@@ -96,14 +104,6 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ route('visimisi.index') }}"
-                        class="nav-link {{ (request()->is('visimisi')) ? 'active' : '' }}">
-                        <i class="fas fa-caret-right"></i>
-                        <p> Visi dan Misi</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
                     <a href="{{ route('logout') }}" class="nav-link">
                         <i class="fas fa-caret-right"></i>
                         <p>
@@ -120,117 +120,6 @@
                     </a>
                 </li>
                 @endif
-
-
-                <!-- <li class="nav-item">
-                    <a href="{{ route('banner.index') }}"
-                        class="nav-link {{ (request()->is('banner')) ? 'active' : '' }}">
-                        <i class="fas fa-caret-right"></i>
-                        <p>Banner</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="{{ route('dinasdetail.index') }}"
-                        class="nav-link {{ (request()->is('dinasdetail')) ? 'active' : '' }}">
-                        <i class="fas fa-caret-right"></i>
-                        <p>Detail Dinas</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="{{ route('download.index') }}"
-                        class="nav-link {{ (request()->is('download')) ? 'active' : '' }}">
-                        <i class="fas fa-caret-right"></i>
-                        <p>Download</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="{{ route('kecamatan.index') }}"
-                        class="nav-link {{ (request()->is('kecamatan')) ? 'active' : '' }}">
-                        <i class="fas fa-caret-right"></i>
-                        <p>Kecamatan</p>
-                    </a>
-                </li>
-
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link {{ (request()->is('pengumuman','kategori')) ? 'active' : '' }}">
-                        <i class="fas fa-caret-right"></i>
-                        <p>
-                            Management Pimpinan
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ route('jabatan.index') }}"
-                                class="nav-link {{ (request()->is('jabatan')) ? 'active' : '' }}">
-                                <i class="fas fa-caret-right"></i>
-                                <p>Jabatan</p>
-                            </a>
-                        </li>
-
-
-                        <li class="nav-item">
-                            <a href="{{ route('pimpinan.index') }}"
-                                class="nav-link {{ (request()->is('pimpinan')) ? 'active' : '' }}">
-                                <i class="fas fa-caret-right"></i>
-                                <p>Pimpinan</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link {{ (request()->is('sejarah','detailsejarah')) ? 'active' : '' }}">
-                        <i class="fas fa-caret-right"></i>
-                        <p>
-                            Management Sejarah
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ route('sejarah.index') }}"
-                                class="nav-link {{ (request()->is('sejarah')) ? 'active' : '' }}">
-                                <i class="fas fa-minus"></i>
-                                <p>Sejarah</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('detailsejarah.index') }}"
-                                class="nav-link {{ (request()->is('detailsejarah')) ? 'active' : '' }}">
-                                <i class="fas fa-minus"></i>
-                                <p>Detail Sejarah</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="nav-item">
-                    <a href="{{ route('pelayanan.index') }}"
-                        class="nav-link {{ (request()->is('pelayanan')) ? 'active' : '' }}">
-                        <i class="fas fa-caret-right"></i>
-                        <p>Pelayanan</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="{{ route('pimpinan.index') }}"
-                        class="nav-link {{ (request()->is('pimpinan')) ? 'active' : '' }}">
-                        <i class="fas fa-caret-right"></i>
-                        <p>Pimpinan</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="{{ route('puskesmas.index') }}"
-                        class="nav-link {{ (request()->is('puskesmas')) ? 'active' : '' }}">
-                        <i class="fas fa-caret-right"></i>
-                        <p>Puskesmas</p>
-                    </a>
-                </li> -->
 
 
             </ul>
