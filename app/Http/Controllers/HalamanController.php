@@ -29,6 +29,8 @@ use App\Models\User;
 use App\Models\Slide;
 use App\Models\Tip;
 use App\Models\Berita;
+use App\Models\Struktur;
+use App\Models\Galeri;
 
 class HalamanController extends Controller
 {
@@ -50,6 +52,12 @@ class HalamanController extends Controller
         $visimisi = Visimisi::latest()->simplePaginate();
         return view('dishub/pages/visimisi',compact('visimisi'));
     }
+
+    public function struktur(){
+        $strukturs = Struktur::get();
+        return view('dishub/pages/struktur',compact('strukturs'));
+    }
+
     public function agendadet(Request $request, $id){
         $agenda = Agenda::where('id', $id)->firstOrFail();
         return view('dishub/pages/agenda-detail',compact('agenda'));
@@ -58,10 +66,57 @@ class HalamanController extends Controller
         $agenda = Agenda::latest()->simplePaginate();
         return view('dishub/pages/agenda',compact('agenda'));
     }
-    public function struktur(){
-        return view('dishub/pages/struktur');
+
+    public function galeri(){
+        $gambars = Galeri::where('jenis_file', 'gambar')->get();
+        $videos = Galeri::where('jenis_file', 'video')->get();
+        return view('dishub/pages/galeri',compact('gambars','videos'));
     }
 
+    public function kontak(){
+        return view('dishub/pages/kontak');
+    }
+
+    public function berita(Request $request) {
+        $kategori = Kategori::latest()->Paginate(5);
+        $beritas = Berita::latest()->Paginate(5);
+        $sidebar = Berita::skip(5)->Paginate(5);
+        
+        return view('dishub/pages/berita',compact('beritas','kategori','sidebar'));
+    }
+
+    public function hascarberita(Request $request) {
+        if($request->has('cari')){
+            $kategori = Kategori::latest()->simplePaginate(5);
+            $sidebar = Berita::skip(5)->simplePaginate(5);
+            $beritas = Berita::where('judul','LIKE','%'.$request->cari.'%')->with('kategori')->get();
+        } else {
+            $kategori = Kategori::latest()->Paginate(5);
+            $beritas = Berita::latest()->Paginate(5);
+            $sidebar = Berita::skip(5)->Paginate(5);
+        }
+        return view('dishub/pages/hascar-berita',compact('beritas','kategori','sidebar'));
+    }
+
+    public function beritadetail(Request $request, $id){
+        if($request->has('cari')){
+            $kategori = Kategori::latest()->simplePaginate(5);
+            $sidebar = Berita::skip(5)->simplePaginate(5);
+            $beritas = Berita::where('judul','LIKE','%'.$request->cari.'%')->with('kategori')->get();
+            return view('dishub/pages/berita',compact('beritas','kategori','sidebar'));
+        } else {
+            $kategori = Kategori::latest()->Paginate(5);
+            $beritas = Berita::where('id', $id)->firstOrFail();
+            $sidebar = Berita::skip(5)->Paginate(5);
+            return view('dishub/pages/berita-detail',compact('beritas','sidebar','kategori'));
+        }
+
+    }
+
+    public function tugasfungsi(){
+
+        return view('dishub/pages/tugasfungsi');
+    }
     //akhir dishub
 
 
@@ -99,27 +154,6 @@ class HalamanController extends Controller
             $sidebar = Pengumuman::skip(5)->simplePaginate(5);
         }
         return view('bolmongkab/detail/hascarpengumuman',compact('pengumuman','kategori','sidebar'));
-    }
-
-    public function berita(Request $request) {
-        $kategori = Kategori::latest()->Paginate(5);
-        $beritas = Berita::latest()->Paginate(5);
-        $sidebar = Berita::skip(5)->Paginate(5);
-        
-        return view('dishub/pages/berita',compact('beritas','kategori','sidebar'));
-    }
-
-    public function hascarberita(Request $request) {
-        if($request->has('cari')){
-            $kategori = Kategori::latest()->simplePaginate(5);
-            $sidebar = Berita::skip(5)->simplePaginate(5);
-            $beritas = Berita::where('judul','LIKE','%'.$request->cari.'%')->with('kategori')->get();
-        } else {
-            $kategori = Kategori::latest()->Paginate(5);
-            $beritas = Berita::latest()->Paginate(5);
-            $sidebar = Berita::skip(5)->Paginate(5);
-        }
-        return view('dishub/pages/hascar-berita',compact('beritas','kategori','sidebar'));
     }
  
     public function wisata(){

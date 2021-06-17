@@ -26,21 +26,36 @@
                with font-awesome or any other icon font library -->
 
                <li class="nav-item">
+                    <a href="{{ route('galeris.index') }}"
+                        class="nav-link {{ (request()->is('galeris')) ? 'active' : '' }}">
+                        <i class="fas fa-caret-right"></i>
+                        <p>Galeri</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('strukturs.index') }}"
+                        class="nav-link {{ (request()->is('strukturs')) ? 'active' : '' }}">
+                        <i class="fas fa-caret-right"></i>
+                        <p>Struktur</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
                     <a href="{{ route('beritas.index') }}"
                         class="nav-link {{ (request()->is('beritas')) ? 'active' : '' }}">
                         <i class="fas fa-caret-right"></i>
                         <p>Berita</p>
                     </a>
                 </li>
-                
-               <li class="nav-item">
-                    <a href="{{ route('tips.index') }}"
-                        class="nav-link {{ (request()->is('tips')) ? 'active' : '' }}">
+
+                <li class="nav-item">
+                    <a href="{{ route('tips.index') }}" class="nav-link {{ (request()->is('tips')) ? 'active' : '' }}">
                         <i class="fas fa-caret-right"></i>
                         <p>Tips</p>
                     </a>
                 </li>
-                
+
                 <li class="nav-item">
                     <a href="{{ route('agenda.index') }}"
                         class="nav-link {{ (request()->is('agenda')) ? 'active' : '' }}">
@@ -50,6 +65,64 @@
                 </li>
 
                 <li class="nav-item">
+                    <a href="{{ route('pengumuman.index') }}"
+                        class="nav-link {{ (request()->is('pengumuman')) ? 'active' : '' }}">
+                        <i class="fas fa-caret-right""></i>
+                        <p>Pengumuman</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('kategori.index') }}"
+                        class="nav-link {{ (request()->is('kategori')) ? 'active' : '' }}">
+                        <i class="fas fa-caret-right""></i>
+                        <p>Kategori</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('slide.index') }}"
+                        class="nav-link {{ (request()->is('slide')) ? 'active' : '' }}">
+                        <i class="fas fa-caret-right"></i>
+                        <p>Slide</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('tags.index') }}" class="nav-link {{ (request()->is('tags')) ? 'active' : '' }}">
+                        <i class="fas fa-caret-right"></i>
+                        <p>Tags</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('visimisi.index') }}"
+                        class="nav-link {{ (request()->is('visimisi')) ? 'active' : '' }}">
+                        <i class="fas fa-caret-right"></i>
+                        <p> Visi dan Misi</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('logout') }}" class="nav-link">
+                        <i class="fas fa-caret-right"></i>
+                        <p>
+                            Logout
+                        </p>
+                    </a>
+                </li>
+
+                @if (auth()->user()->level == "admin")
+                <li class="nav-item">
+                    <a href="{{ route('admin') }}" class="nav-link {{ (request()->is('admin')) ? 'active' : '' }}">
+                        <i class="fas fa-caret-right"></i>
+                        <p>Management User</p>
+                    </a>
+                </li>
+                @endif
+
+
+                <!-- <li class="nav-item">
                     <a href="{{ route('banner.index') }}"
                         class="nav-link {{ (request()->is('banner')) ? 'active' : '' }}">
                         <i class="fas fa-caret-right"></i>
@@ -85,33 +158,6 @@
                     <a href="#" class="nav-link {{ (request()->is('pengumuman','kategori')) ? 'active' : '' }}">
                         <i class="fas fa-caret-right"></i>
                         <p>
-                            Management Pengumuman
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ route('pengumuman.index') }}"
-                                class="nav-link {{ (request()->is('pengumuman')) ? 'active' : '' }}">
-                                <i class="fas fa-minus"></i>
-                                <p>Pengumuman</p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="{{ route('kategori.index') }}"
-                                class="nav-link {{ (request()->is('kategori')) ? 'active' : '' }}">
-                                <i class="fas fa-minus"></i>
-                                <p>Kategori Pengumuman</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
-                <!-- <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link {{ (request()->is('pengumuman','kategori')) ? 'active' : '' }}">
-                        <i class="fas fa-caret-right"></i>
-                        <p>
                             Management Pimpinan
                             <i class="fas fa-angle-left right"></i>
                         </p>
@@ -134,7 +180,7 @@
                             </a>
                         </li>
                     </ul>
-                </li> -->
+                </li>
 
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link {{ (request()->is('sejarah','detailsejarah')) ? 'active' : '' }}">
@@ -162,15 +208,6 @@
                     </ul>
                 </li>
 
-                @if (auth()->user()->level == "admin")
-                <li class="nav-item">
-                    <a href="{{ route('admin') }}" class="nav-link {{ (request()->is('admin')) ? 'active' : '' }}">
-                        <i class="fas fa-caret-right"></i>
-                        <p>Management User</p>
-                    </a>
-                </li>
-                @endif
-
                 <li class="nav-item">
                     <a href="{{ route('pelayanan.index') }}"
                         class="nav-link {{ (request()->is('pelayanan')) ? 'active' : '' }}">
@@ -193,39 +230,9 @@
                         <i class="fas fa-caret-right"></i>
                         <p>Puskesmas</p>
                     </a>
-                </li>
+                </li> -->
 
-                <li class="nav-item">
-                    <a href="{{ route('slide.index') }}"
-                        class="nav-link {{ (request()->is('slide')) ? 'active' : '' }}">
-                        <i class="fas fa-caret-right"></i>
-                        <p>Slide</p>
-                    </a>
-                </li>
 
-                <li class="nav-item">
-                    <a href="{{ route('tags.index') }}" class="nav-link {{ (request()->is('tags')) ? 'active' : '' }}">
-                        <i class="fas fa-caret-right"></i>
-                        <p>Tags</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="{{ route('visimisi.index') }}"
-                        class="nav-link {{ (request()->is('visimisi')) ? 'active' : '' }}">
-                        <i class="fas fa-caret-right"></i>
-                        <p> Visi dan Misi</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="{{ route('logout') }}" class="nav-link">
-                        <i class="fas fa-caret-right"></i>
-                        <p>
-                            Logout
-                        </p>
-                    </a>
-                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

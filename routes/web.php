@@ -33,6 +33,9 @@ use App\Http\Controllers\TagController;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\TipController;
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\StrukturController;
+use App\Http\Controllers\GaleriController;
+use App\Http\Controllers\KontakController;
 //akhir crud
 
 //Halaman statis
@@ -43,6 +46,10 @@ route::get('/v-visimisi',[halamanController::class,'visimisi']);
 route::get('/v-agenda',[halamanController::class,'agenda']);
 route::get('/v-struktur',[halamanController::class,'struktur']);
 route::get('/v-berita',[halamanController::class,'berita']);
+route::get('/v-tugasfungsi',[halamanController::class,'tugasfungsi']);
+route::get('/v-galeri',[halamanController::class,'galeri']);
+route::get('/v-kontak',[halamanController::class,'kontak']);
+route::get('/v-berita-detail/{beritas:id}',[halamanController::class,'beritadetail'])->name('v-berita-detail');
 route::get('/berita-cari',[halamancontroller::class,'hascarberita']);
 //akhir dishub
 
@@ -99,6 +106,9 @@ Route::group(['middleware' => ['auth','ceklevel:admin,operator']], function () {
     Route::resource('agenda', AgendaController::class);
     Route::resource('tips', TipController::class);
     Route::resource('beritas', BeritaController::class);
+    Route::resource('strukturs', StrukturController::class);
+    Route::resource('galeris', GaleriController::class);
+    Route::resource('kontaks', KontakController::class);
 
     route::get('/admin',[LoginController::class,'index'])->name('admin');
     route::post('/deladmin/{users:id}',[LoginController::class,'destroy'])->name('deladmin');
