@@ -49,15 +49,15 @@
                             </div>
 
                             <h2 class="entry-title">
-                                <a href="berita-detail.html">{{$beritas->judul}}</a>
+                                {{$beritas->judul}}
                             </h2>
 
                             <div class="entry-meta">
                                 <ul>
                                     <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a
-                                            href="berita-detail.html">{{$beritas->user->name}}</a></li>
+                                            href="#">{{$beritas->user->name}}</a></li>
                                     <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a
-                                            href="berita-detail.html"><time>{{$beritas->created_at}}</time></a>
+                                            href="#"><time>{{$beritas->created_at}}</time></a>
                                     </li>
                                 </ul>
                             </div>
@@ -130,13 +130,13 @@
                             @endforeach
                             </div><!-- End sidebar recent posts-->
 
-                            <h3 class="sidebar-title">Tags</h3>
+                            <!-- <h3 class="sidebar-title">Tags</h3>
                             <div class="sidebar-item tags">
                                 <ul>
                                     <li><a href="#">Umum</a></li>
                                     <li><a href="#">Khusus</a></li>
                                 </ul>
-                            </div><!-- End sidebar tags-->
+                            </div> -->
 
                         </div><!-- End sidebar -->
 

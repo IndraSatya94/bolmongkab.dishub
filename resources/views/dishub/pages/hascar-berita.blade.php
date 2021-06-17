@@ -47,15 +47,15 @@
                             </div>
 
                             <h2 class="entry-title">
-                                <a href="berita-single.html">{{$berita->judul}}</a>
+                                <a href="{{ route('v-berita-detail',$berita->id) }}">{{$berita->judul}}</a>
                             </h2>
 
                             <div class="entry-meta">
                                 <ul>
                                     <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a
-                                            href="berita-single.html">{{$berita->user->name}}</a></li>
+                                            href="#">{{$berita->user->name}}</a></li>
                                     <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a
-                                            href="berita-single.html"><time
+                                            href="#"><time
                                                 datetime="2020-01-01">{{$berita->created_at}}</time></a></li>
                                 </ul>
                             </div>
@@ -65,18 +65,14 @@
                                     {{$berita->konten}}
                                 </p>
                                 <div class="read-more">
-                                    <a href="berita-single.html">Selengkapnya...</a>
+                                    <a href="{{ route('v-berita-detail',$berita->id) }}">Selengkapnya...</a>
                                 </div>
                             </div>
                         </article><!-- End berita entry -->
                         @endforeach
 
                         <div class="berita-pagination">
-                            <ul class="justify-content-center">
-                                <li class="active"><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                            </ul>
+                            {!! $beritas->links('Template.pagination') !!}
                         </div>
 
                     </div><!-- End berita entries list -->

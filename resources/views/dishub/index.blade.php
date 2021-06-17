@@ -122,7 +122,7 @@
 
                 </div>
                 <div class="lainnya">
-                    <h4><a href="berita.html">Berita Lainnya</a></h2>
+                    <h4><a href="{{ ('v-berita') }}">Berita Lainnya</a></h2>
                 </div>
             </div>
 
