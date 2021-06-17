@@ -42,6 +42,8 @@ route::get('/',[halamanController::class,'index']);
 route::get('/v-visimisi',[halamanController::class,'visimisi']);
 route::get('/v-agenda',[halamanController::class,'agenda']);
 route::get('/v-struktur',[halamanController::class,'struktur']);
+route::get('/v-berita',[halamanController::class,'berita']);
+route::get('/berita-cari',[halamancontroller::class,'hascarberita']);
 //akhir dishub
 
 route::get('/pengumumantemp',[halamancontroller::class,'pengumuman']);
@@ -96,7 +98,7 @@ Route::group(['middleware' => ['auth','ceklevel:admin,operator']], function () {
     Route::resource('visimisi', VisimisiController::class);
     Route::resource('agenda', AgendaController::class);
     Route::resource('tips', TipController::class);
-    Route::resource('berita', BeritaController::class);
+    Route::resource('beritas', BeritaController::class);
 
     route::get('/admin',[LoginController::class,'index'])->name('admin');
     route::post('/deladmin/{users:id}',[LoginController::class,'destroy'])->name('deladmin');

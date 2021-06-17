@@ -28,6 +28,7 @@ use App\Models\Agenda;
 use App\Models\User;
 use App\Models\Slide;
 use App\Models\Tip;
+use App\Models\Berita;
 
 class HalamanController extends Controller
 {
@@ -38,17 +39,11 @@ class HalamanController extends Controller
 
     //dishub
     public function index(){
-        // $pelayanan = Pelayanan::latest();
-        // $pelayanan1 = Pelayanan::where('posisi', 'atas')->get();
-        // $pelayanan2= Pelayanan::where('posisi', 'bawah')->get();
-        // $banner = Banner::latest()->simplePaginate(3);
-        // $pengumuman = Pengumuman::latest()->simplePaginate(3);
-        // $pimpinan = Pimpinan::latest()->simplePaginate(3);
-        // $agenda = Agenda::latest()->simplePaginate(3);
+        $beritas = Berita::get();
         $tips = Tip::get();
         $slide1 = Slide::where('slide', 'slide1')->get();
         $slide2 = Slide::where('slide', 'slide2')->get();
-        return view('dishub/index',compact('slide1','slide2','tips'));
+        return view('dishub/index',compact('slide1','slide2','tips','beritas'));
     }
 
     public function visimisi(){
@@ -104,6 +99,27 @@ class HalamanController extends Controller
             $sidebar = Pengumuman::skip(5)->simplePaginate(5);
         }
         return view('bolmongkab/detail/hascarpengumuman',compact('pengumuman','kategori','sidebar'));
+    }
+
+    public function berita(Request $request) {
+        $kategori = Kategori::latest()->Paginate(5);
+        $beritas = Berita::latest()->Paginate(5);
+        $sidebar = Berita::skip(5)->Paginate(5);
+        
+        return view('dishub/pages/berita',compact('beritas','kategori','sidebar'));
+    }
+
+    public function hascarberita(Request $request) {
+        if($request->has('cari')){
+            $kategori = Kategori::latest()->simplePaginate(5);
+            $sidebar = Berita::skip(5)->simplePaginate(5);
+            $beritas = Berita::where('judul','LIKE','%'.$request->cari.'%')->with('kategori')->get();
+        } else {
+            $kategori = Kategori::latest()->Paginate(5);
+            $beritas = Berita::latest()->Paginate(5);
+            $sidebar = Berita::skip(5)->Paginate(5);
+        }
+        return view('dishub/pages/hascar-berita',compact('beritas','kategori','sidebar'));
     }
  
     public function wisata(){

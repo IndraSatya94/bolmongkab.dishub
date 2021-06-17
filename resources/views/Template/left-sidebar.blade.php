@@ -26,8 +26,8 @@
                with font-awesome or any other icon font library -->
 
                <li class="nav-item">
-                    <a href="{{ route('berita.index') }}"
-                        class="nav-link {{ (request()->is('berita')) ? 'active' : '' }}">
+                    <a href="{{ route('beritas.index') }}"
+                        class="nav-link {{ (request()->is('beritas')) ? 'active' : '' }}">
                         <i class="fas fa-caret-right"></i>
                         <p>Berita</p>
                     </a>

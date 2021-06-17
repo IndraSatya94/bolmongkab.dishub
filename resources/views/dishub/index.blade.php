@@ -49,7 +49,7 @@
               <li><a href="{{ ('/v-struktur') }}">Struktur Organisasi</a></li>
             </ul>
           </li>
-          <li><a href="berita.html">Berita</a></li>
+          <li><a href="{{ ('/v-berita') }}">Berita</a></li>
           <li><a href="{{ ('/v-agenda') }}">Agenda</a></li>
           <li><a href="https://ppid.bolmongkab.go.id">PPID</a></li>
           <li><a href="galeri.html">Galeri</a></li>
@@ -147,33 +147,17 @@
             </header>
     
             <div class="row">
-    
+
+            @foreach($beritas as $berita)
               <div class="col-lg-4">
                 <div class="post-box">
-                  <div class="post-img"><img src="assets/img/berita/berita-1.jpg" class="img-fluid" alt=""></div>
-                  <span class="post-date">8 Juni 2019</span>
-                  <h3 class="post-title">Pekan Depan, Penandatanganan Kontrak Pekerjaan Pagar Batas Lahan Bandar Udara Lolak</h3>
+                  <div class="post-img"><img src="image/berita/{{$berita->image}}" class="img-fluid" alt=""></div>
+                  <span class="post-date">{{$berita->created_at}}</span>
+                  <h3 class="post-title">{{$berita->judul}}</h3>
                   <a href="berita-detail.html" class="readmore stretched-link mt-auto"><span>Baca..</span><i class="bi bi-arrow-right"></i></a>
                 </div>
               </div>
-    
-              <div class="col-lg-4">
-                <div class="post-box">
-                  <div class="post-img"><img src="assets/img/berita/berita-2.jpg" class="img-fluid" alt=""></div>
-                  <span class="post-date">8 April 2019</span>
-                  <h3 class="post-title">Jembatan Timbang Inobonto Kembali Beroperasi</h3>
-                  <a href="berita-detail.html" class="readmore stretched-link mt-auto"><span>Baca..</span><i class="bi bi-arrow-right"></i></a>
-                </div>
-              </div>
-    
-              <div class="col-lg-4">
-                <div class="post-box">
-                  <div class="post-img"><img src="assets/img/berita/berita-3.jpg" class="img-fluid" alt=""></div>
-                  <span class="post-date">26 Februari 2019</span>
-                  <h3 class="post-title">Hebat, Dishub Bolmong Rampungkan Gedung PKB Dulangon</h3>
-                  <a href="berita-detail.html" class="readmore stretched-link mt-auto"><span>Baca..</span><i class="bi bi-arrow-right"></i></a>
-                </div>
-              </div>
+            @endforeach
     
             </div>
               <div class="lainnya">
