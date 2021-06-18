@@ -4,7 +4,7 @@
   <img src="assets/img/logobolmong.png" alt="">
   <span>DISHUB</span>
 </a>
-<nav id="navbar" class="navbar nav-menu d-none d-lg-block">
+<nav id="navbar" class="navbar">
   <ul>
     <li><a class="{{ (request()->is('/')) ? 'active' : '' }}" href="{{ ('/') }}">Beranda</a></li>
     <li class="dropdown"><a href="#"><span>Profil</span> <i class="bi bi-chevron-down"></i></a>
