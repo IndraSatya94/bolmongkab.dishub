@@ -43,7 +43,7 @@ class HalamanController extends Controller
 
     //dishub
     public function index(){
-        $kontaks = Kontak::first()->get();
+        $kontaks = Kontak::get();
         $beritas = Berita::get();
         $tips = Tip::get();
         $slide1 = Slide::where('slide', 'slide1')->get();
@@ -77,7 +77,7 @@ class HalamanController extends Controller
     }
 
     public function kontak(){
-        $kontaks = Kontak::first()->get();
+        $kontaks = Kontak::get();
         return view('dishub/pages/kontak',compact('kontaks'));
     }
 
