@@ -83,7 +83,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <div class="form-group">
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
-                                            <label class="input-group-text" for="inputGroupSelect01">Jabatan</label>
+                                            <label class="input-group-text" for="inputGroupSelect01">Jenis File</label>
                                         </div>
                                         <select class="custom-select" id="inputGroupSelect01" name="jenis_file"
                                             id="jenis_file">

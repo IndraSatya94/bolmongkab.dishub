@@ -42,7 +42,7 @@ class GaleriController extends Controller
             'nama' => 'required',
             'keterangan' => 'required',
             'jenis_file' => 'required',
-            'file' => 'required|mimes:jpeg,png,jpg,gif,svg,mp4,mkv,avi,mov,mpeg|max:4096',
+            'file' => 'required|mimes:jpeg,png,jpg,gif,svg,mp4,m4v,mkv,avi,mov,mpeg|max:4096',
         ]);
   
         $input = $request->all();
