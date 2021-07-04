@@ -14,6 +14,13 @@
         <li><a class="{{ (request()->is('v-struktur')) ? 'active' : '' }}" href="{{ ('/v-struktur') }}">Struktur Organisasi</a></li>
       </ul>
     </li>
+    <li class="dropdown"><a href="#"><span>Bidang</span> <i class="bi bi-chevron-down"></i></a>
+      <ul>
+        <li><a class="{{ (request()->is('v-lalulintas')) ? 'active' : '' }}" href="{{ ('/v-lalulintas') }}">Bidang Lalu Lintas dan Angkutan</a></li>
+        <li><a class="{{ (request()->is('v-prasarana')) ? 'active' : '' }}" href="{{ ('/v-prasarana') }}">Bidang Prasarana</a></li>
+        <li><a class="{{ (request()->is('v-pengembangan')) ? 'active' : '' }}" href="{{ ('/v-pengembangan') }}">Bidang Pengembangan dan Keselamatan</a></li>
+      </ul>
+    </li>
     <li><a class="{{ (request()->is('v-berita')) ? 'active' : '' }}" href="{{ ('/v-berita') }}">Berita</a></li>
     <li><a class="{{ (request()->is('v-agenda')) ? 'active' : '' }}" href="{{ ('/v-agenda') }}">Agenda</a></li>
     <li><a href="https://ppid.bolmongkab.go.id">PPID</a></li>

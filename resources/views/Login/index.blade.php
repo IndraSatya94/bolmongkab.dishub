@@ -64,6 +64,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <tr>
                                         <th>No</th>
                                         <th>Nama</th>
+                                        <th>Username</th>
                                         <th>Level</th>
                                         <th>Email</th>
                                         <th>Password</th>
@@ -76,6 +77,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <tr>
                                         <td>{{ ++$i }}</td>
                                         <td>{{ $user->name }}</td>
+                                        <td>{{ $user->username }}</td>
                                         <td>{{ $user->level }}</td>
                                         <td>{{ $user->email }}</td>
                                         <td>{{ $user->password }}</td>

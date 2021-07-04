@@ -34,6 +34,9 @@ route::get('/v-berita',[halamanController::class,'berita']);
 route::get('/v-tugasfungsi',[halamanController::class,'tugasfungsi']);
 route::get('/v-galeri',[halamanController::class,'galeri']);
 route::get('/v-kontak',[halamanController::class,'kontak']);
+route::get('/v-prasarana',[halamanController::class,'prasarana']);
+route::get('/v-pengembangan',[halamanController::class,'pengembangan']);
+route::get('/v-lalulintas',[halamanController::class,'lalulintas']);
 route::get('/v-berita-detail/{beritas:id}',[halamanController::class,'beritadetail'])->name('v-berita-detail');
 route::get('/berita-cari',[halamancontroller::class,'hascarberita']);
 //akhir dishub

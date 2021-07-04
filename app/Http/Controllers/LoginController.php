@@ -29,11 +29,11 @@ class LoginController extends Controller
 
 
     public function postlogin(Request $request){
-        if(Auth::attempt($request->only('email','password'))){
+        if(Auth::attempt($request->only('username','password'))){
             return redirect('/home');
         }    
         return redirect('/login')
-                        ->with('salah','Password / Email Salah');
+                        ->with('salah','Password / Username Salah');
     }
 
     public function logout(){
@@ -50,12 +50,14 @@ class LoginController extends Controller
         $this->validate($request, [
             'email'=>'required|max:50|unique:users,email',
             'name'=>'required',
+            'username'=>'required',
 
         ]);
 
         User::create([
             'name' => $request->name,
             'level' => 'operator',
+            'username' => $request->username,
             'email' => $request->email,
             'password' => bcrypt($request->password),
             'remember_token' => Str::random(60),
@@ -87,9 +89,10 @@ class LoginController extends Controller
               ->where('id', $request->id_user)
               ->update(['name' => $request->name,
               'email' => $request->email,
+              'username' => $request->username,
               'password' => bcrypt($request->password)]);
     
-        return redirect()->route('index')
+        return redirect()->route('admin')
                         ->with('success','User Berhasil Diupdate !');
     }
 

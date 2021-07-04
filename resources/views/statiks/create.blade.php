@@ -71,6 +71,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <select class="custom-select" id="inputGroupSelect01" name="halaman"
                                             id="halaman">
                                             <option value="">Pilih Halaman</option>
+                                            <option value="lalulintas">Bidang Lalu Lintas dan Angkutan</option>
+                                            <option value="prasarana">Bidang Prasarana</option>
+                                            <option value="pengembangan">Bidang Pengembangan dan Keselamatan</option>
                                             <option value="visimisi">Visi dan Misi</option>
                                             <option value="struktur">Struktur</option>
                                             <option value="tugasfungsi">Tugas dan Fungsi</option>

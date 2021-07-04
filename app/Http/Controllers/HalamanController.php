@@ -44,11 +44,26 @@ class HalamanController extends Controller
     //dishub
     public function index(){
         $kontaks = Kontak::get();
-        $beritas = Berita::get();
+        $beritas = Berita::take(3)->latest()->get();
         $tips = Tip::get();
         $slide1 = Slide::where('slide', 'slide1')->get();
         $slide2 = Slide::where('slide', 'slide2')->get();
         return view('dishub/index',compact('slide1','slide2','tips','beritas','kontaks'));
+    }
+
+    public function pengembangan(){
+        $pengembangan = Statik::where('halaman', 'pengembangan')->get();
+        return view('dishub/pages/pengembangan',compact('pengembangan'));
+    }
+
+    public function prasarana(){
+        $prasarana = Statik::where('halaman', 'prasarana')->get();
+        return view('dishub/pages/prasarana',compact('prasarana'));
+    }
+
+    public function lalulintas(){
+        $lalulintas = Statik::where('halaman', 'lalulintas')->get();
+        return view('dishub/pages/lalulintas',compact('lalulintas'));
     }
 
     public function visimisi(){

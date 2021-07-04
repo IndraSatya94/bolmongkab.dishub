@@ -73,6 +73,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
+                                        <strong>username:</strong>
+                                        <input type="hidden" name="id_user" value="{{ $users->id }}">
+                                        <input type="text" name="username" class="form-control" value="{{ $users->username }}">
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
                                         <strong>email:</strong>
                                         <input type="text" name="email" class="form-control"
                                             value="{{ $users->email }}">
